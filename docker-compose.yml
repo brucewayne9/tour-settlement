@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build: ./backend
+    container_name: tour-backend
+    ports:
+      - "30001:30001"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    networks:
+      - tour-network
+
+  # Frontend React App
+  frontend:
+    build: ./frontend
+    container_name: tour-frontend
+    ports:
+      - "38080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - tour-network
+    environment:
+      - REACT_APP_API_URL=http://localhost:30001
+
+networks:
+  tour-network:
+    driver: bridge
