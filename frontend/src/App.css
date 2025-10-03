@@ -26,6 +26,7 @@ header {
 .max-w-7xl {
   max-width: 80rem;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 h1 {
@@ -44,6 +45,8 @@ nav {
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 nav button {
@@ -56,6 +59,7 @@ nav button {
   border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 nav button:hover,
@@ -246,4 +250,224 @@ select {
   background-position: right 1rem center;
   background-size: 1.25rem;
   padding-right: 3rem;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet Styles (768px and below) */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  header p {
+    font-size: 0.75rem;
+  }
+
+  nav {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav button {
+    padding: 0.625rem 1rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card h2 {
+    font-size: 1.125rem;
+  }
+
+  input, select {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .py-8 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Mobile Styles (480px and below) */
+@media (max-width: 480px) {
+  header {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.125rem;
+  }
+
+  header p {
+    font-size: 0.7rem;
+  }
+
+  nav button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  main {
+    padding: 1rem 0.75rem;
+  }
+
+  .grid {
+    gap: 0.75rem;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 0.875rem;
+  }
+
+  .stat-card p:first-child {
+    font-size: 0.75rem;
+  }
+
+  .stat-card p:nth-child(2) {
+    font-size: 1.25rem;
+  }
+
+  .stat-card p:last-child {
+    font-size: 0.7rem;
+  }
+
+  .card {
+    padding: 0.875rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card > p {
+    font-size: 0.8rem;
+  }
+
+  .flex.justify-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .flex.items-center {
+    flex-wrap: wrap;
+  }
+
+  input, select {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  select {
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+  }
+
+  .text-purple-300 {
+    padding: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .px-6 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .mb-6 {
+    margin-bottom: 1rem;
+  }
+
+  .mt-6 {
+    margin-top: 1rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1rem;
+  }
+
+  .stat-card p:nth-child(2) {
+    font-size: 1.125rem;
+  }
+
+  input, select, button {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .stat-card,
+  .card {
+    padding: 0.75rem;
+  }
 }
